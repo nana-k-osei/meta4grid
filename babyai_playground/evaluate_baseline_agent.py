@@ -3,15 +3,18 @@ import minigrid
 import numpy as np
 from stable_baselines3 import PPO
 from raw_state_wrapper import RawStateWrapper
+#from raw_state_wrapper import RawStateWrapperRich
 
 
 # Load trained model
-model = PPO.load("ppo_baseline_redblueball")
+#model = PPO.load("ppo_baseline_redblueball")
+model = PPO.load("ppo_baseline_redblueball_v1")
 
 # Set up eval environment
 def make_env():
     env = gym.make("BabyAI-GoToRedBlueBall-v0", render_mode=None)
     env = RawStateWrapper(env)
+    #env = RawStateWrapperRich(env)
     return env
 
 env = make_env()
