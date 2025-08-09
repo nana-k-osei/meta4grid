@@ -19,9 +19,9 @@ def make_env():
         env = FullyObsWrapper(env)
         env = TimeLimit(env, max_episode_steps=64)  # Cap episode steps
         env = Monitor(env)
-        #env = RawStateWrapper(env) 
+        env = RawStateWrapper(env) 
         #env = SymbolicObsWrapper(env) 
-        env = FilteredSymbolicWrapper(env) 
+        #env = FilteredSymbolicWrapper(env) 
         return env
     return _init
 
